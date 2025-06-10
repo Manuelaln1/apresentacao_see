@@ -1,0 +1,389 @@
+        /* Importa a fonte Montserrat */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+        
+        /* Estilos gerais do corpo da página - Usando o degradê cinza */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            /* Degradê verde para o fundo - Tons de verde sutis */
+            background: linear-gradient(to bottom, #E8F5E9, #C8E6C9, #A5D6A7); 
+            background-size: cover; 
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #333; 
+            overflow: hidden;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Contêiner para o logo no canto superior esquerdo */
+        .logo-container {
+            position: absolute;
+            top: 35px;
+            left: 30px;
+            z-index: 100; /* Garante que o logo fique acima de outros elementos */
+        }
+
+        .logo-container img {
+            width: 220px; /* Largura do logo */
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container img:hover {
+            transform: scale(1.05); /* Efeito de zoom no hover */
+        }
+        
+        /* Contêiner principal para a órbita, ocupando a maior parte da tela */
+        .orbit-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* O círculo central do departamento com paleta mais elegante e minimalista */
+        .center-hub {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            /* Alterações de estilo para o center-hub */
+            background: linear-gradient(145deg, #e0ffe0, #ffffff); /* Gradiente suave */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: larger;
+            padding: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Sombra mais elegante */
+            z-index: 10;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 157, 47, 0.3); /* Borda verde sutil */
+            color: green; /* Cor do texto principal em verde */
+            transition: all 0.5s ease;
+            cursor: pointer; /* Adicionado cursor pointer para indicar que é clicável */
+        }
+        
+        .center-hub:hover {
+            transform: scale(1.05);
+            background: linear-gradient(145deg, #d0f0d0, #f0fff0); /* Ligeiramente mais claro no hover */
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25); /* Sombra um pouco mais forte */
+        }
+        
+        /* Estilo para as linhas de órbita (círculos pontilhados) - Branco sutil */
+        .orbit {
+            position: absolute;
+            border: 1px dashed #009D2F; /* Linhas verdes sutis */
+            border-radius: 50%;
+            animation: rotate 60s linear infinite;
+            animation-play-state: running;
+            pointer-events: none;
+        }
+        
+        .orbit-1 { width: 350px; height: 350px; animation-delay: 1s; }
+        .orbit-2 { width: 500px; height: 500px; animation-delay: -12s; }
+        .orbit-3 { width: 650px; height: 650px; animation-delay: -21s; }
+        .orbit-4 { width: 800px; height: 800px; animation-delay: -30s; }
+        .orbit-5 { width: 950px; height: 950px; animation-delay: -37s; }
+        
+        /* Tamanho das "bolas" (divisões) com fundo mais suave e zoom no texto */
+        .division {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* Alterações de estilo para as divisões */
+            background: linear-gradient(145deg, #e0ffe0, #ffffff); /* Gradiente suave */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Sombra mais elegante */
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(0, 157, 47, 0.2); /* Borda verde suave */
+            font-weight: 600;
+            font-size: 20px;
+            color: green; /* Cor do texto em verde */
+            animation-name: counter-rotate;
+            animation-duration: inherit;
+            animation-delay: inherit;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-play-state: running;
+            pointer-events: auto;
+        }
+        
+        .division:hover {
+            transform: translate(-50%, -50%) scale(1.05); /* Leve zoom na própria divisão */
+            background: linear-gradient(145deg, #d0f0d0, #f0fff0); /* Ligeiramente mais claro no hover */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Sombra um pouco mais forte */
+        }
+
+        .division span {
+            display: inline-block; /* Necessário para aplicar transform */
+            transition: transform 0.3s ease;
+        }
+
+        .division:hover span {
+            transform: scale(1.1); /* Zoom no texto */
+        }
+
+        /* Efeito de brilho ao passar o mouse - mantido branco */
+        .division::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 20%, rgba(255, 255, 255, 0) 70%); /* Brilho branco suave */
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+            z-index: -1;
+        }
+
+        .division:hover::before {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes counter-rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(-360deg); }
+        }
+
+        /* Contêiner das logos no modal */
+        .modal-header-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .modal-header-logo img {
+            height: 100px; /* Altura padrão para as logos no modal */
+            object-fit: contain; /* Garante que a imagem não seja cortada */
+        }
+
+        .modal-logo-container {
+            text-align: center;
+            /* Removido margin-bottom e height/width fixos, pois flexbox vai gerenciar */
+        }
+
+        /* Estilo específico para a logo do NTE no modal de tecnologias */
+        .modal-nte-logo-container img {
+            width: auto; /* Deixa a largura automática para manter a proporção */
+            height: 150px; /* Ajuste a altura conforme necessário para a logo do NTE */
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            background-color: rgba(0, 0, 0, 0.5); /* Overlay semi-transparente para o modal */
+        }
+        
+        /* Conteúdo do modal com fundo branco para combinar com a imagem de referência */
+        .modal-content {
+            background: white; /* Fundo branco */
+            width: 90%;
+            max-width: 1400px;
+            max-height: 95vh;
+            border-radius: 20px;
+            padding: 50px;
+            position: relative;
+            overflow-y: auto;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
+            border: 1px solid #E0E0E0; /* Borda cinza muito suave */
+            color: #333333; /* Cor do texto escuro para contrastar com fundo branco */
+        }
+
+        .modal-content h2 { font-size: 2.8rem; margin-bottom: 2rem; text-align: center; color: #009D2F;} /* Títulos em verde */
+        .modal-content p, .modal-content ul { font-size: 1.2rem; line-height: 1.7; }
+        .modal-content h3 { font-size: 2rem; margin-top: 2.5rem; margin-bottom: 1rem; color: #009D2F;} /* Subtítulos em verde */
+        .modal-content ul { list-style-position: inside; }
+        
+        /* Botão de fechar do modal - Verde vibrante */
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+            background: #009D2F; /* Verde vibrante */
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 157, 47, 0.3); /* Sombra verde */
+        }
+        
+        .close-btn:hover {
+            background: #007C24; /* Verde mais escuro no hover */
+            transform: scale(1.1);
+        }
+        
+        /* Layout das fotos */
+        .photo-gallery {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        /* Itens de foto com fundo transparente verde e borda suave */
+        .photo-item {
+            width: 1300px;
+            height: 700px;
+            background-color: rgba(0, 157, 47, 0.03); /* Fundo verde muito sutil */
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgba(0, 157, 47, 0.08); /* Borda verde suave */
+            transition: transform 0.3s ease;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+            border-radius: 12px; /* Mantém as bordas arredondadas */
+        }
+
+        .photo-item:hover {
+            transform: translateY(-5px) scale(1.03);
+        }
+
+        /* Ícones SVG em verde */
+        .photo-item svg {
+            color: #009D2F; /* Ícones SVG em verde vibrante */
+            filter: drop-shadow(0 0 5px rgba(0,157,47,0.3)); /* Sombra verde */
+        }
+        
+        .stats {
+            display: flex;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        /* Caixas de estatísticas com fundo transparente verde e borda suave */
+        .stat-box {
+            background: rgba(0, 157, 47, 0.05); /* Fundo verde sutil */
+            border-radius: 15px;
+            padding: 25px;
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            border: 1px solid rgba(0, 157, 47, 0.1); /* Borda verde suave */
+            color: #333333; /* Cor do texto escuro */
+        }
+        
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #009D2F; /* Números em verde */
+        }
+        
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* === AJUSTES DE RESPONSIVIDADE === */
+        @media (max-width: 1400px) {
+            .orbit-1 { width: 500px; height: 500px; }
+            .orbit-2 { width: 700px; height: 700px; }
+            .orbit-3 { width: 900px; height: 900px; }
+            .orbit-4 { width: 1100px; height: 1100px; }
+            .orbit-5 { width: 1300px; height: 1300px; }
+            .division { width: 180px; height: 180px; font-size: 1rem; }
+        }
+        
+        @media (max-width: 768px) {
+            .logo-container {
+                top: 10px;
+                left: 10px;
+            }
+            .logo-container img {
+                width: 70px;
+                height: 70px;
+            }
+            .orbit-1 { width: 400px; height: 400px; }
+            .orbit-2 { width: 520px; height: 520px; }
+            .orbit-3 { width: 640px; height: 640px; }
+            .orbit-4 { width: 760px; height: 760px; }
+            .orbit-5 { width: 880px; height: 880px; }
+            .division { width: 110px; height: 110px; font-size: 0.8rem; padding: 5px; }
+            .center-hub { width: 180px; height: 180px; }
+            
+            .modal-content { width: 95%; padding: 25px; }
+            .modal-content h2 { font-size: 1.8rem; margin-bottom: 1.5rem; }
+            .modal-content p, .modal-content ul { font-size: 1rem; }
+            .modal-content h3 { font-size: 1.3rem; margin-top: 2rem; }
+
+            .modal-header-logo img {
+                height: 60px; /* Ajuste para telas menores */
+            }
+
+            .stats { flex-direction: column; }
+            .photo-gallery { flex-direction: column; gap: 10px; }
+            .photo-item { width: 120px; height: 100px; }
+        }
+
+        @media (max-width: 480px) {
+            .logo-container img {
+                width: 50px;
+                height: 50px;
+            }
+            .center-hub { width: 120px; height: 120px; font-size: 0.8rem; }
+            .division { width: 80px; height: 80px; font-size: 0.6rem; }
+            .orbit-1 { width: 280px; height: 280px; }
+            .orbit-2 { width: 360px; height: 360px; }
+            .orbit-3 { width: 440px; height: 440px; }
+            .orbit-4 { width: 520px; height: 520px; }
+            .orbit-5 { width: 600px; height: 600px; }
+
+            .modal-content h2 { font-size: 1.5rem; }
+            .modal-content p, .modal-content ul { font-size: 0.9rem; }
+            .modal-content h3 { font-size: 1.1rem; }
+            .stat-number { font-size: 2.5rem; }
+            .stat-label { font-size: 1rem; }
+            
+            .modal-header-logo img {
+                height: 50px; /* Ajuste para telas muito pequenas */
+            }
+        }

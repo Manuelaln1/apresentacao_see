@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Departamento de Inovação e Mídias Digitais</title>    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Contêiner do Logo -->
+    <div class="logo-container">
+        <!-- Substitua 'URL_DA_SUA_LOGO_AQUI.png' pelo caminho da sua imagem de logo -->
+        <img src="logo2.png" alt="Logo do Departamento">
+    </div>
+
+    <div class="orbit-container">
+        <div class="center-hub" onclick="openModalAndPauseAnimations('departamento')">
+            <h1 class="text-lg font-bold">Inovação e Mídias</h1>
+        </div>
+        
+        <div class="orbit orbit-1"> <div class="division" onclick="openModalAndPauseAnimations('tecnologias')"> <span>Tecnologias Educacionais</span> </div> </div>
+        <div class="orbit orbit-2"> <div class="division" onclick="openModalAndPauseAnimations('ambiental')"> <span>Educação Ambiental</span> </div> </div>
+        <div class="orbit orbit-3"> <div class="division" onclick="openModalAndPauseAnimations('inovacoes')"> <span>Inovações Educacionais</span> </div> </div>
+        <div class="orbit orbit-4"> <div class="division" onclick="openModalAndPauseAnimations('midias')"> <span>Mídias Digitais</span> </div> </div>
+        <div class="orbit orbit-5"> <div class="division" onclick="openModalAndPauseAnimations('viverciencia')"> <span>Viver Ciência</span> </div> </div>
+    </div>
+    
+    <!-- Novo Modal para o Central Hub -->
+    <div id="modal-departamento" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModalAndResumeAnimations()">&times;</span>
+            <div class="modal-header-logo">
+                <div class="modal-logo-container">
+                    <img src="logo2.png" alt="Logo do Departamento">
+                </div>
+            </div>
+            <h2 class="font-bold">Departamento de Inovação e Mídias Digitais</h2>
+            <p>Este departamento é responsável por impulsionar a inovação e o uso estratégico de mídias digitais na educação, desenvolvendo projetos e iniciativas que transformam o processo de ensino-aprendizagem. Nosso foco é integrar tecnologias emergentes, promover a criatividade e capacitar educadores e alunos para os desafios do futuro.</p>
+        </div>
+    </div>
+
+    <div id="modal-tecnologias" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModalAndResumeAnimations()">&times;</span>
+            <!-- NOVO: Contêiner para as duas logos -->
+            <div class="modal-header-logo">
+                <div class="modal-nte-logo-container mr-4">
+                    <img src="NTE.png" alt="Logo do NTE">
+                </div>
+                <div class="modal-logo-container">
+                    <img src="logo2.png" alt="Logo do Departamento">
+                </div>
+            </div>
+            <h2 class="font-bold">Divisão de Tecnologias Educacionais</h2>
+            <p>Realização de práticas inovadoras que facilitem a aprendizagem, incentivo ao uso de ferramentas tecnológicas educacionais e suporte pedagógico.</p>
+            <h3 class="font-semibold">Estrutura</h3>
+            <p>Composta por 6 NTEs (Núcleos de Tecnologias Digitais) nos municípios de Rio Branco, Sena Madureira, Tarauacá, Cruzeiro do Sul, Acrelândia e Brasiléia.</p>
+            <h3 class="font-semibold">Ações Realizadas</h3>
+            <ul class="list-disc">
+                <li>Oficinas sobre: Uso da Inteligência Artificial</li>
+                <li>Plataformas Digitais Educacionais</li>
+                <li>Gamificação</li>
+                <li>Workshop para Professores sobre Cidadania Digital</li>
+                <li>Palestras para alunos sobre Cidadania Digital</li>
+            </ul>
+            <h3 class="font-semibold">Números de Atendimentos (até junho)</h3>
+            <div class="stats">
+                <div class="stat-box"> <div class="stat-number">1.250</div> <div class="stat-label">Alunos</div> </div>
+                <div class="stat-box"> <div class="stat-number">85</div> <div class="stat-label">Equipes de Professores</div> </div>
+            </div>
+            <h3 class="font-semibold">Fotos das Ações</h3>
+            <div id="photos-tecnologias" class="photo-gallery">
+                <div class="photo-item"> <img src="https://placehold.co/1300x700/009D2F/ffffff?text=Tecnologias+Educacionais+1" alt="Tecnologias Educacionais 1"> </div>
+                <div class="photo-item"> <img src="https://placehold.co/1300x700/F7E700/333333?text=Tecnologias+Educacionais+2" alt="Tecnologias Educacionais 2"> </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-ambiental" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModalAndResumeAnimations()">&times;</span>
+            <div class="modal-header-logo">
+                <div class="modal-logo-container">
+                    <img src="logo2.png" alt="Logo do Departamento">
+                </div>
+            </div>
+            <h2 class="font-bold">Divisão de Educação Ambiental</h2>
+            <p>Desenvolvimento de ações pedagógicas, promovendo processos formativos que fortaleçam a consciência crítica, o protagonismo social e a construção coletiva de valores, saberes e práticas voltadas à sustentabilidade.</p>
+            <h3 class="font-semibold">Ações Realizadas</h3>
+            <ul class="list-disc">
+                <li>Projeto Escola Sustentável</li>
+                <li>Oficinas de Reciclagem e Reaproveitamento</li>
+                <li>Seminários sobre Preservação Ambiental</li>
+                <li>Hortas Escolares Comunitárias</li>
+                <li>Campanhas de Conscientização Ecológica</li>
+            </ul>
+            <h3 class="font-semibold">Números de Atendimentos (até junho)</h3>
+            <div class="stats">
+                <div class="stat-box"> <div class="stat-number">980</div> <div class="stat-label">Alunos</div> </div>
+                <div class="stat-box"> <div class="stat-number">42</div> <div class="stat-label">Equipes de Professores</div> </div>
+            </div>
+            <h3 class="font-semibold">Fotos das Ações</h3>
+            <div id="photos-ambiental" class="photo-gallery">
+                <div class="photo-item"> <img src="https://placehold.co/1300x700/009D2F/ffffff?text=Educa%C3%A7%C3%A3o+Ambiental+1" alt="Educação Ambiental 1"> </div>
+                <div class="photo-item"> <img src="https://placehold.co/1300x700/F7E700/333333?text=Educa%C3%A7%C3%A3o+Ambiental+2" alt="Educação Ambiental 2"> </div>
+                <div class="photo-item"> <img src="https://placehold.co/1300x700/009D2F/ffffff?text=Educa%C3%A7%C3%A3o+Ambiental+3" alt="Educação Ambiental 3"> </div>
+                <div class="photo-item"> <img src="https://placehold.co/1300x700/F7E700/333333?text=Educa%C3%A7%C3%A3o+Ambiental+4" alt="Educação Ambiental 4"> </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-inovacoes" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModalAndResumeAnimations()">&times;</span>
+            <div class="modal-header-logo">
+                <div class="modal-logo-container">
+                    <img src="logo2.png" alt="Logo do Departamento">
+                </div>
+            </div>
+            <h2 class="font-bold">Divisão de Inovações Educacionais</h2>
+            <p>Realização de experiências escolares que envolvam a cultura maker, laboratórios criativos, gamificação, realidade aumentada, ambientes virtuais de aprendizagem e outras tecnologias emergentes.</p>
+            <h3 class="font-semibold">Estrutura</h3>
+            <p>Composta por: Núcleo de Incentivo ao Conhecimento, Núcleo de Automação e Robótica Educacional e Núcleo de Matemática e Ciências Aplicadas.</p>
+            <h3 class="font-semibold">Ações Realizadas</h3>
+            <ul class="list-disc">
+                <li>Laboratórios de Robótica nas Escolas</li>
+                <li>Hackathons Educacionais</li>
+                <li>Olimpíadas de Programação</li>
+                <li>Feiras de Ciências e Tecnologia</li>
+                <li>Capacitação em Metodologias Ativas</li>
+            </ul>
+            <h3 class="font-semibold">Números de Atendimentos (até junho)</h3>
+            <div class="stats">
+                <div class="stat-box"> <div class="stat-number">1.450</div> <div class="stat-label">Alunos</div> </div>
+                <div class="stat-box"> <div class="stat-number">65</div> <div class="stat-label">Equipes de Professores</div> </div>
+            </div>
+            <h3 class="font-semibold">Fotos das Ações</h3>
+            <div id="photos-inovacoes" class="photo-gallery">
+                <div class="photo-item"> <img src="https://placehold.co/1300x700/009D2F/ffffff?text=Inova%C3%A7%C3%B5es+Educacionais+1" alt="Inovações Educacionais 1"> </div>
+                <div class="photo-item"> <img src="https://placehold.co/1300x700/F7E700/333333?text=Inova%C3%A7%C3%B5es+Educacionais+2" alt="Inovações Educacionais 2"> </div>
+                <div class="photo-item"> <img src="https://placehold.co/1300x700/009D2F/ffffff?text=Inova%C3%A7%C3%B5es+Educacionais+3" alt="Inovações Educacionais 3"> </div>
+                <div class="photo-item"> <img src="https://placehold.co/1300x700/F7E700/333333?text=Inova%C3%A7%C3%B5es+Educacionais+4" alt="Inovações Educacionais 4"> </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-midias" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModalAndResumeAnimations()">&times;</span>
+            <div class="modal-header-logo">
+                <div class="modal-logo-container">
+                    <img src="logo2.png" alt="Logo do Departamento">
+                </div>
+            </div>
+            <h2 class="font-bold">Divisão de Mídias Digitais</h2>
+            <p>Produção e gestão de conteúdos digitais, estratégias de comunicação e gravação de aulas virtuais, com o objetivo de ampliar o acesso ao ensino e fortalecer a cultura digital no ambiente educacional.</p>
+            <h3 class="font-semibold">Estrutura</h3>
+            <p>Composta por: Núcleo de Incentivo ao Conhecimento, Núcleo de Automação e Robótica Educacional e Núcleo de Matemática e Ciências Aplicadas.</p>
+            <h3 class="font-semibold">Ações Realizadas</h3>
+            <ul class="list-disc">
+                <li>Produção de Videoaulas</li>
+                <li>Criação de Podcasts Educativos</li>
+                <li>Desenvolvimento de Plataformas de Ensino Digital</li>
+                <li>Capacitação em Produção de Conteúdo Digital</li>
+                <li>Gestão de Redes Sociais Educativas</li>
+            </ul>
+            <h3 class="font-semibold">Números de Atendimentos (até junho)</h3>
+            <div class="stats">
+                <div class="stat-box"> <div class="stat-number">2.100</div> <div class="stat-label">Alunos</div> </div>
+                <div class="stat-box"> <div class="stat-number">95</div> <div class="stat-label">Equipes de Professores</div> </div>
+            </div>
+            <h3 class="font-semibold">Fotos das Ações</h3>
+            <div id="photos-midias" class="photo-gallery">
+                <div class="photo-item"> <img src="https://placehold.co/1300x700/009D2F/ffffff?text=M%C3%ADdias+Digitais+1" alt="Mídias Digitais 1"> </div>
+                <div class="photo-item"> <img src="https://placehold.co/1300x700/F7E700/333333?text=M%C3%ADdias+Digitais+2" alt="Mídias Digitais 2"> </div>
+                <div class="photo-item"> <img src="https://placehold.co/1300x700/009D2F/ffffff?text=M%C3%ADdias+Digitais+3" alt="Mídias Digitais 3"> </div>
+                <div class="photo-item"> <img src="https://placehold.co/1300x700/F7E700/333333?text=M%C3%ADdias+Digitais+4" alt="Mídias Digitais 4"> </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-viverciencia" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModalAndResumeAnimations()">&times;</span>
+            <div class="modal-header-logo">
+                <div class="modal-logo-container">
+                    <img src="logo2.png" alt="Logo do Departamento">
+                </div>
+            </div>
+            <h2 class="font-bold">Viver Ciência</h2>
+            <p>A Mostra Científica Viver Ciência é uma ação desenvolvida por este departamento em conjunto com outros departamentos da Secretaria Estadual de Educação que visa mostrar os projetos científicos que são realizados pelos alunos e seus professores, iniciando os mesmos na produção da ciência.</p>
+            <h3 class="font-semibold">Objetivos do Programa</h3>
+            <ul class="list-disc">
+                <li>Incentivar a pesquisa científica nas escolas</li>
+                <li>Promover a integração entre alunos e professores</li>
+                <li>Desenvolver o pensamento crítico e científico</li>
+                <li>Valorizar projetos inovadores</li>
+                <li>Criar uma cultura de investigação científica</li>
+            </ul>
+            <h3 class="font-semibold">Resultados</h3>
+            <div class="stats">
+                <div class="stat-box"> <div class="stat-number">120</div> <div class="stat-label">Projetos Apresentados</div> </div>
+                <div class="stat-box"> <div class="stat-number">45</div> <div class="stat-label">Escolas Participantes</div> </div>
+                <div class="stat-box"> <div class="stat-number">3.200</div> <div class="stat-label">Visitantes</div> </div>
+            </div>
+            <h3 class="font-semibold">Fotos do Evento</h3>
+            <div id="photos-viverciencia" class="photo-gallery">
+                <div class="photo-item"> <img src="https://placehold.co/1300x700/009D2F/ffffff?text=Viver+Ci%C3%AAncia+1" alt="Viver Ciência 1"> </div>
+                <div class="photo-item"> <img src="https://placehold.co/1300x700/F7E700/333333?text=Viver+Ci%C3%AAncia+2" alt="Viver Ciência 2"> </div>
+                <div class="photo-item"> <img src="https://placehold.co/1300x700/009D2F/ffffff?text=Viver+Ci%C3%AAncia+3" alt="Viver Ciência 3"> </div>
+                <div class="photo-item"> <img src="https://placehold.co/1300x700/F7E700/333333?text=Viver+Ci%C3%AAncia+4" alt="Viver Ciência 4"> </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src = "script.js"></script>
+</body>
+</html>
