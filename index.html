@@ -14,16 +14,32 @@
         <img src="logo2.png" alt="Logo do Departamento">
     </div>
 
+
+    <!-- Novo contêiner para o astronauta -->
+
+
     <div class="orbit-container">
         <div class="center-hub" onclick="openModalAndPauseAnimations('departamento')">
-            <h1 class="text-lg font-bold">Inovação e Mídias</h1>
+           <p>Departamento de Inovação e Mídias</p> 
         </div>
         
-        <div class="orbit orbit-1"> <div class="division" onclick="openModalAndPauseAnimations('tecnologias')"> <span>Tecnologias Educacionais</span> </div> </div>
-        <div class="orbit orbit-2"> <div class="division" onclick="openModalAndPauseAnimations('ambiental')"> <span>Educação Ambiental</span> </div> </div>
-        <div class="orbit orbit-3"> <div class="division" onclick="openModalAndPauseAnimations('inovacoes')"> <span>Inovações Educacionais</span> </div> </div>
-        <div class="orbit orbit-4"> <div class="division" onclick="openModalAndPauseAnimations('midias')"> <span>Mídias Digitais</span> </div> </div>
-        <div class="orbit orbit-5"> <div class="division" onclick="openModalAndPauseAnimations('viverciencia')"> <span>Viver Ciência</span> </div> </div>
+        <!-- Re-adicionando as outras órbitas sem divisões -->
+        <div class="orbit orbit-1"></div>
+        <div class="orbit orbit-2"></div>
+        <div class="orbit orbit-4"></div>
+        <div class="orbit orbit-5"></div>
+
+        <!-- A órbita 3 agora conterá um contêiner giratório para as divisões -->
+        <div class="orbit orbit-3" id="main-orbit">
+            <!-- Novo contêiner para as divisões que irá girar -->
+            <div id="rotating-divisions-container">
+                <div class="division" onclick="openModalAndPauseAnimations('tecnologias')"> <img src="NTE.png" alt="Tecnologias Educacionais Logo"> </div>
+                <div class="division" onclick="openModalAndPauseAnimations('ambiental')"> <img src="ambiental_logo.png" alt="Educação Ambiental Logo"> </div>
+                <div class="division" onclick="openModalAndPauseAnimations('inovacoes')"> <img src="inovacoes_logo.png" alt="Inovações Educacionais Logo"> </div>
+                <div class="division" onclick="openModalAndPauseAnimations('midias')"> <img src="midias_logo.png" alt="Mídias Digitais Logo"> </div>
+                <div class="division" onclick="openModalAndPauseAnimations('viverciencia')"> <img src="viverciencia_logo.png" alt="Viver Ciência Logo"> </div>
+            </div>
+        </div>
     </div>
     
     <!-- Novo Modal para o Central Hub -->
@@ -157,7 +173,6 @@
             <p>Produção e gestão de conteúdos digitais, estratégias de comunicação e gravação de aulas virtuais, com o objetivo de ampliar o acesso ao ensino e fortalecer a cultura digital no ambiente educacional.</p>
             <h3 class="font-semibold">Estrutura</h3>
             <p>Composta por: Núcleo de Incentivo ao Conhecimento, Núcleo de Automação e Robótica Educacional e Núcleo de Matemática e Ciências Aplicadas.</p>
-            <h3 class="font-semibold">Ações Realizadas</h3>
             <ul class="list-disc">
                 <li>Produção de Videoaulas</li>
                 <li>Criação de Podcasts Educativos</li>
