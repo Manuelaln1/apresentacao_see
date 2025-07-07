@@ -1,22 +1,23 @@
-/* Importa a fonte Montserrat */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+/* Importa a fonte Montserrat e Open Sans */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap');
 
 /* Estilos gerais do corpo da página - Usando o degradê cinza */
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif; /* Fonte mais delicada para o corpo e padrão */
     /* Degradê verde para o fundo - Tons de verde sutis */
     background: linear-gradient(to bottom, #E8F5E9, #C8E6C9, #A5D6A7);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: #333;
-    /* Removido overflow: hidden para permitir rolagem no mobile se necessário */
+    overflow: hidden;
     margin: 0;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 
 /* Contêiner para o logo no canto superior esquerdo */
 .logo-container {
@@ -27,12 +28,200 @@ body {
 }
 
 .logo-container img {
-    width: 220px; /* Largura do logo */
+    width: 250px; /* Largura do logo */
     transition: transform 0.3s ease;
 }
 
 .logo-container img:hover {
     transform: scale(1.05); /* Efeito de zoom no hover */
+}
+
+/* Contêiner para o robô no canto inferior direito */
+.robot-container {
+    position: absolute;
+    bottom: -10px; /* Ajuste conforme necessário para a posição vertical */
+    right: -60px; /* Ajuste conforme necessário para a posição horizontal */
+    z-index: 100; /* Garante que o robô fique acima de outros elementos */
+}
+
+.robot-container img {
+    width: 300px; /* Largura do robô */
+    height: auto; /* Mantém a proporção */
+    transition: transform 0.3s ease;
+}
+
+.robot-container img:hover {
+    transform: scale(1.05); /* Efeito de zoom no hover */
+}
+
+/* NOVO: Contêiner do astronauta e animação - Foco em manter à direita e adicionar movimento lateral suave */
+.astronaut-container {
+    position: absolute;
+    right: 20px; /* Mantenha o astronauta na extrema direita com um pequeno padding */
+    top: 50%; /* Posição inicial vertical */
+    transform: translateY(-50%);
+    z-index: 99; /* Abaixo do logo e robô, mas acima do fundo */
+    animation: floatAstronaut 60s linear infinite; /* Animação mais lenta (60 segundos) */
+}
+
+.astronaut-container img {
+    width: 250px; /* Tamanho ajustável */
+    height: auto;
+}
+
+/* Keyframes da animação do astronauta: movimento vertical e pequenas rotações/escalas, e agora movimento lateral sutil */
+@keyframes floatAstronaut {
+    0% {
+        top: 8%; /* Começa mais alto, ligeiramente diferente */
+        right: 20px; /* Posição inicial na direita */
+        opacity: 0.8;
+        transform: translateY(-50%) rotate(0deg) scale(1);
+    }
+    25% {
+        top: 95%; /* Desce mais perto do final, ligeiramente diferente */
+        right: 200px; /* Move ligeiramente mais para a esquerda */
+        opacity: 1;
+        transform: translateY(-50%) rotate(5deg) scale(1.05);
+    }
+    50% {
+        top: 13%; /* Sobe novamente, ligeiramente diferente */
+        right: 80px; /* Move ligeiramente mais para a direita */
+        opacity: 0.9;
+        transform: translateY(-50%) rotate(-5deg) scale(1);
+    }
+    75% {
+        top: 92%; /* Desce ainda mais para o final, ligeiramente diferente */
+        right: 70px; /* Move ligeiramente mais para a esquerda */
+        opacity: 1;
+        transform: translateY(-50%) rotate(3deg) scale(0.95);
+    }
+    100% {
+        top: 8%; /* Volta à posição inicial mais alta */
+        right: 20px; /* Posição final na direita */
+        opacity: 0.8;
+        transform: translateY(-50%) rotate(0deg) scale(1);
+    }
+}
+
+
+/* === AJUSTES DE RESPONSIVIDADE === */
+@media (max-width: 1400px) {
+    /* Ajustes para a órbita para garantir que o astronauta tenha espaço */
+    .orbit-3 { width: 900px; height: 900px; }
+    .division { width: 260px; height: 260px; font-size: 1.5rem; } /* Ajustado */
+    .center-hub { width: 300px; height: 300px; }
+    .center-hub p { font-size: 2.8rem; } /* Ajustado para telas menores que 1400px */
+
+    .astronaut-container {
+        right: 15px; /* Ajuste para telas menores */
+        animation-duration: 70s; /* Animação mais lenta */
+    }
+    .astronaut-container img {
+        width: 120px; /* Astronauta menor */
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-container {
+        top: 10px;
+        left: 10px;
+    }
+    .logo-container img {
+        width: 100px;
+        height: 100px;
+    }
+    .robot-container {
+        bottom: 0px;
+        right: -10px;
+    }
+    .robot-container img {
+        width: 100px;
+    }
+    .astronaut-container {
+        right: 10px; /* Ajuste para telas menores */
+        animation-duration: 80s; /* Animação ainda mais lenta */
+    }
+    .astronaut-container img {
+        width: 80px; /* Astronauta menor */
+    }
+    .orbit-1 { width: 400px; height: 400px; }
+    .orbit-2 { width: 520px; height: 520px; }
+    .orbit-3 { width: 640px; height: 640px; }
+    .orbit-4 { width: 760px; height: 760px; }
+    .orbit-5 { width: 880px; height: 880px; }
+    .division { width: 180px; height: 180px; font-size: 1.3rem; padding: 5px; } /* Ajustado */
+    .center-hub { width: 240px; height: 240px; }
+    .center-hub p { font-size: 2.3rem; } /* Ajustado para telas menores que 768px */
+
+    .modal-content { width: 95%; padding: 25px; }
+    .modal-content h2 { font-size: 1.8rem; margin-bottom: 1.5rem; }
+    .modal-content p, .modal-content ul { font-size: 1rem; }
+    .modal-content h3 { font-size: 1.3rem; margin-top: 2rem; }
+
+    .modal-header-logo img {
+        height: 60px; /* Ajuste para telas menores */
+    }
+
+    .stats { flex-direction: column; }
+    .photo-gallery { flex-direction: column; gap: 10px; }
+    .photo-item { width: 120px; height: 100px; }
+}
+
+@media (max-width: 480px) {
+    .logo-container img {
+        width: 50px;
+        height: 50px;
+    }
+    .robot-container {
+        bottom: 0px;
+        right: -30px;
+    }
+    .robot-container img {
+        width: 120px;
+    }
+    .astronaut-container {
+        right: 5px; /* Ajuste para telas muito pequenas */
+        animation-duration: 90s; /* Animação ainda mais lenta */
+    }
+    .astronaut-container img {
+        width: 60px;
+    }
+    .center-hub { width: 180px; height: 180px; }
+    .center-hub p { font-size: 1.8rem; } /* Ajustado para telas menores que 480px */
+    .division { width: 130px; height: 130px; font-size: 1rem; } /* Ajustado */
+    .orbit-1 { width: 280px; height: 280px; }
+    .orbit-2 { width: 360px; height: 360px; }
+    .orbit-3 { width: 440px; height: 440px; }
+    .orbit-4 { width: 520px; height: 520px; }
+    .orbit-5 { width: 600px; height: 600px; }
+
+    .modal-content h2 { font-size: 1.5rem; }
+    .modal-content p, .modal-content ul { font-size: 0.9rem; }
+    .modal-content h3 { font-size: 1.1rem; }
+    .stat-number { font-size: 2.5rem; }
+    .stat-label { font-size: 1rem; }
+
+    .modal-header-logo img {
+        height: 50px; /* Ajuste para telas muito pequenas */
+    }
+
+    .orbit-container {
+        align-items: center;
+        justify-content: center;
+        transform: scale(0.6); /* Reduz a escala geral para caber na tela menor */
+    }
+
+    .center-hub {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .orbit {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
 }
 
 /* Contêiner principal para a órbita, ocupando a maior parte da tela */
@@ -45,33 +234,48 @@ body {
     align-items: center;
 }
 
-/* O círculo central do departamento com paleta mais elegante e minimalista */
+/* O círculo central do departamento com paleta mais elegante e destacada */
 .center-hub {
     position: absolute;
-    width: 180px;
-    height: 180px;
+    width: 280px; /* Aumentado para mais destaque */
+    height: 280px; /* Aumentado para mais destaque */
     /* Alterações de estilo para o center-hub */
-    background: linear-gradient(145deg, #e0ffe0, #ffffff); /* Gradiente suave */
+    background: linear-gradient(145deg, #e0ffe0, #ffffff); /* Fundo mais claro e minimalista */
     border-radius: 50%;
     display: flex;
+    flex-direction: column; /* Alterado para empilhar o h1 e outros elementos se houver */
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: larger;
     padding: 20px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Sombra mais elegante */
+    /* Mais destaque para o central hub com estilo minimalista */
     z-index: 10;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 157, 47, 0.3); /* Borda verde sutil */
-    color: #009D2F; /* Cor do texto principal em verde */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Sombra elegante */
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    border: 1px solid #007C24; /* Borda verde suave */
+    border-style:solid;
+    color: #007C24; /* Cor do texto principal em verde da órbita */
+    text-shadow: none; /* Removido para um design mais minimalista */
     transition: all 0.5s ease;
     cursor: pointer; /* Adicionado cursor pointer para indicar que é clicável */
 }
 
+/* Estilo específico para o título dentro do center-hub para corresponder à imagem */
+.center-hub p {
+    font-size: 30px; /* Ajuste conforme necessário para o tamanho do texto na imagem */
+    font-family: 'Open Sans', sans-serif; /* Usando Montserrat para o título central */
+    font-weight: 400; /* Mais espesso para corresponder à imagem */
+    line-height: 1.1; /* Ajustar o espaçamento entre linhas */
+    margin: 0; /* Remover margem padrão do h1 */
+    padding: 0; /* Remover preenchimento padrão do h1 */
+    color: #007C24; /* Cor do texto principal em verde da órbita */
+}
+
 .center-hub:hover {
-    transform: scale(1.05);
-    background: linear-gradient(145deg, #d0f0d0, #f0fff0); /* Ligeiramente mais claro no hover */
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25); /* Sombra um pouco mais forte */
+    transform: scale(1.1); /* Aumenta o zoom no hover */
+    background: linear-gradient(145deg, #E8F5E9, #F8F8F8); /* Ligeiramente mais escuro no hover */
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15); /* Sombra um pouco mais forte no hover */
 }
 
 /* Estilo para as linhas de órbita (círculos pontilhados) - Branco sutil */
@@ -79,27 +283,41 @@ body {
     position: absolute;
     border: 1px dashed #009D2F; /* Linhas verdes sutis */
     border-radius: 50%;
-    animation: rotate 60s linear infinite;
-    animation-play-state: running;
-    pointer-events: none;
+    /* Remover animação das órbitas, elas ficarão fixas */
+    animation-play-state: paused; /* Pausa qualquer animação herdada */
+    pointer-events: none; /* Não interage com o mouse diretamente */
+    /* Centralizar a órbita */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.orbit-1 { width: 350px; height: 350px; animation-delay: 1s; }
-.orbit-2 { width: 500px; height: 500px; animation-delay: -12s; }
-.orbit-3 { width: 650px; height: 650px; animation-delay: -21s; }
-.orbit-4 { width: 800px; height: 800px; animation-delay: -30s; }
-.orbit-5 { width: 950px; height: 950px; animation-delay: -37s; }
+
+/* Definir tamanhos para as órbitas */
+.orbit-1 { width: 450px; height: 450px; animation-delay: 1s; } /* Aumentado */
+.orbit-2 { width: 600px; height: 600px; animation-delay: -12s;} /* Aumentado */
+.orbit-3 { width: 750px; height: 750px; animation-delay: -21s;} /* Aumentado - esta é a órbita principal das bolas */
+.orbit-4 { width: 900px; height: 900px; animation-delay: -30s;} /* Aumentado */
+.orbit-5 { width: 1050px; height: 1050px; animation-delay: -37s;} /* Aumentado */
+
+/* Novo contêiner para as divisões que irá girar dentro da órbita */
+#rotating-divisions-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    animation: rotate 60s linear infinite; /* Animação de rotação para este contêiner */
+    animation-play-state: running;
+}
 
 /* Tamanho das "bolas" (divisões) com fundo mais suave e zoom no texto */
 .division {
     position: absolute;
-    width: 150px;
-    height: 150px;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* Alterações de estilo para as divisões */
-    background: linear-gradient(145deg, #e0ffe0, #ffffff); /* Gradiente suave */
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(145deg, #e0ffe0, #ffffff);
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -107,35 +325,48 @@ body {
     text-align: center;
     padding: 10px;
     cursor: pointer;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Sombra mais elegante */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     backdrop-filter: blur(5px);
-    border: 1px solid rgba(0, 157, 47, 0.2); /* Borda verde suave */
-    font-weight: 600;
-    font-size: 20px;
-    color: green; /* Cor do texto em verde */
-    animation-name: counter-rotate;
-    animation-duration: inherit;
-    animation-delay: inherit;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-play-state: running;
+    border: 1px solid  #009D2F;
+    font-weight: 400;
+    font-size: 1.2rem;
+    font-family: 'Open Sans', sans-serif;
+    color: #007C24;
+
+    /* RE-APLICAR A CONTRA-ROTAÇÃO AQUI */
+    animation: counter-rotate 60s linear infinite; /* Aplica contra-rotação */
+    animation-play-state: running; /* Garante que esteja rodando */
     pointer-events: auto;
 }
 
 .division:hover {
-    transform: translate(-50%, -50%) scale(1.05); /* Leve zoom na própria divisão */
-    background: linear-gradient(145deg, #d0f0d0, #f0fff0); /* Ligeiramente mais claro no hover */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Sombra um pouco mais forte */
+    transform: scale(1.05);
+    background: linear-gradient(145deg, #d0f0d0, #f0fff0);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-.division span {
-    display: inline-block; /* Necessário para aplicar transform */
+.division img {
+    max-width: 100%; /* Ajusta conforme necessário */
+    max-height: 100%; /* Ajusta conforme necessário */
+    object-fit: contain; /* Garante que a imagem se ajuste sem cortar */
     transition: transform 0.3s ease;
 }
 
-.division:hover span {
-    transform: scale(1.1); /* Zoom no texto */
+.division:hover img {
+    transform: scale(1.1); /* Amplia ligeiramente a imagem no hover */
+}
+
+/* Keyframes para a rotação principal */
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Keyframes para a contra-rotação */
+@keyframes counter-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); } /* Rotaciona na direção oposta */
 }
 
 /* Efeito de brilho ao passar o mouse - mantido branco */
@@ -159,15 +390,6 @@ body {
     opacity: 1;
 }
 
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-@keyframes counter-rotate {
-    from { transform: translate(-50%, -50%) rotate(0deg); }
-    to { transform: translate(-50%, -50%) rotate(-360deg); }
-}
 
 /* Contêiner das logos no modal */
 .modal-header-logo {
@@ -321,109 +543,4 @@ body {
 .stat-label {
     font-size: 1.2rem;
     opacity: 0.9;
-}
-
-/* === AJUSTES DE RESPONSIVIDADE === */
-/* Para telas de até 1400px de largura (geralmente tablets maiores e alguns notebooks) */
-@media (max-width: 1400px) {
-    .orbit-1 { width: 500px; height: 500px; }
-    .orbit-2 { width: 700px; height: 700px; }
-    .orbit-3 { width: 900px; height: 900px; }
-    .orbit-4 { width: 1100px; height: 1100px; }
-    .orbit-5 { width: 1300px; height: 1300px; }
-    .division { width: 180px; height: 180px; font-size: 1rem; }
-}
-
-/* Para telas de até 768px de largura (tablets e smartphones em modo paisagem) */
-@media (max-width: 768px) {
-    .logo-container {
-        top: 10px;
-        left: 10px;
-    }
-    .logo-container img {
-        width: 70px;
-        height: 70px;
-    }
-
-    /* Esconder as órbitas menores em telas pequenas */
-    .orbit {
-        display: none;
-    }
-
-    /* Ajustar o container principal para empilhar os elementos */
-    .orbit-container {
-        flex-direction: column; /* Empilha os itens verticalmente */
-        height: auto; /* A altura se ajusta ao conteúdo */
-        padding: 20px; /* Adiciona um preenchimento */
-        position: static; /* Remove o posicionamento absoluto */
-        width: auto; /* A largura se ajusta ao conteúdo */
-        overflow-y: auto; /* Adiciona rolagem vertical se o conteúdo exceder a tela */
-    }
-
-    /* Ajustar o hub central para telas menores */
-    .center-hub {
-        position: static; /* Remove o posicionamento absoluto */
-        margin-bottom: 30px; /* Espaçamento abaixo do hub */
-        width: 150px; /* Reduz o tamanho */
-        height: 150px;
-        font-size: 1rem;
-    }
-
-    /* Ajustar as divisões para telas menores */
-    .division {
-        position: static; /* Remove o posicionamento absoluto */
-        transform: none; /* Remove a transformação que as posiciona na órbita */
-        margin-bottom: 15px; /* Espaçamento entre as divisões */
-        width: 80%; /* Deixa as divisões mais largas para melhor toque */
-        max-width: 300px; /* Limita a largura máxima */
-        height: auto; /* A altura se ajusta ao conteúdo */
-        font-size: 0.9rem;
-        padding: 15px;
-        border-radius: 15px; /* Borda ligeiramente menos arredondada */
-    }
-
-    .modal-content { width: 95%; padding: 25px; }
-    .modal-content h2 { font-size: 1.8rem; margin-bottom: 1.5rem; }
-    .modal-content p, .modal-content ul { font-size: 1rem; }
-    .modal-content h3 { font-size: 1.3rem; margin-top: 2rem; }
-
-    .modal-header-logo img {
-        height: 60px; /* Ajuste para telas menores */
-    }
-
-    .stats { flex-direction: column; }
-    .photo-gallery { flex-direction: column; gap: 10px; }
-    .photo-item {
-        max-width: 100%;
-        height: auto; /* A altura se ajusta para manter a proporção */
-    }
-}
-
-/* Para telas de até 480px de largura (smartphones em modo retrato) */
-@media (max-width: 480px) {
-    .logo-container img {
-        width: 50px;
-        height: 50px;
-    }
-    .center-hub {
-        width: 100px; /* Ainda menor para telas muito pequenas */
-        height: 100px;
-        font-size: 0.7rem;
-        margin-bottom: 20px;
-    }
-    .division {
-        width: 90%; /* Ainda mais largo para telas muito pequenas */
-        font-size: 0.8rem;
-        padding: 10px;
-    }
-
-    .modal-content h2 { font-size: 1.5rem; }
-    .modal-content p, .modal-content ul { font-size: 0.9rem; }
-    .modal-content h3 { font-size: 1.1rem; }
-    .stat-number { font-size: 2.5rem; }
-    .stat-label { font-size: 1rem; }
-
-    .modal-header-logo img {
-        height: 50px; /* Ajuste para telas muito pequenas */
-    }
 }
